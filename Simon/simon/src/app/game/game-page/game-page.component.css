@@ -113,18 +113,18 @@
     }
 
     .Red:active {  
-      box-shadow: inset 0rem 0rem 2rem 0rem red;
+      box-shadow: 0rem -1rem 2rem 0rem #ff3333;
       }
     
     .Green:active { 
-        box-shadow: inset 0rem 0rem 2rem 0rem green;
+        box-shadow: 0rem -1rem 2rem 0rem #99ff66;
       }
     
     .Blue:active { 
-        box-shadow: inset 0rem 0rem 2rem 0rem blue;
+        box-shadow: 0rem 1rem 2rem 0rem  #80aaff;
       }
     
     .Yellow:active { 
-        box-shadow: inset 0rem 0rem 2rem 0rem yellow;
+        box-shadow: 0rem 1rem 2rem 0rem #ffff66;
       }
   
