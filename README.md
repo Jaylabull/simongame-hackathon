@@ -18,6 +18,12 @@ ToDo List
 - User can customize key mappings for each color 
 - Upgrade game to Bop It! 
 
+## Getting Started
+1. Run the CLI `npm install` command in the terminal to download the angular environment.
+
+2. Run the CLI `ng serve -o` command to open browser and view the game. 
+
+
 ## Contributors 
 - [Justin Wallace](https://github.com/jmwallace77)
 - [AJ Jacobs](https://github.com/aljacobs1021)
