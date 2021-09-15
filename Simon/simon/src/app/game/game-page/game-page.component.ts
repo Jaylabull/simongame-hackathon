@@ -35,5 +35,17 @@ export class GamePageComponent implements OnInit {
     
   }
 
+  //on game start
+  gameStart(){
+    let rand = Math.floor(Math.random() * 5);
+
+    //loop randomize each 3 number that represnts a color
+    for(let i = 0; i < 10; i++){
+
+    }
+
+
+  }
+
 
 }
