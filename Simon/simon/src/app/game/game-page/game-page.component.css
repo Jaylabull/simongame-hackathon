@@ -18,28 +18,31 @@
       grid-area: Red; 
     background-color: darkred;
     border-radius: 10rem;
-    border: .5rem solid black ;
-    
+    border: .3rem solid black ;
+    box-shadow: 0rem -1rem 2rem 0rem darkred;
     }
   
   .Green { 
       grid-area: Green; 
       background-color: darkgreen;
       border-radius: 10rem;
-      border: .5rem solid black ;
+      border: .3rem solid black ;
+      box-shadow: 0rem -1rem 2rem 0rem darkgreen;
     }
   
   .Blue { 
       grid-area: Blue; 
       background-color: darkblue;
       border-radius: 10rem;
-      border: .5rem solid black ;
+      border: .3rem solid black ;
+      box-shadow: 0rem 1rem 2rem 0rem darkblue;
     }
   
   .Yellow { 
       grid-area: Yellow;
       background-color: darkgoldenrod; 
       border-radius: 10rem;
-      border: .5rem solid black ;
+      border: .3rem solid black ;
+      box-shadow: 0rem 1rem 2rem 0rem darkgoldenrod;
     }
   
