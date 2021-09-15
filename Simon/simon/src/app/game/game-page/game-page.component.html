@@ -1,6 +1,14 @@
 <div class="container">
     <div class="TitleBar">
-        <h1>Hello</h1>
+        <div class="title">
+            <h1>Simon</h1>
+        </div>
+        <div class="playerScore">
+            <h1>Score: {{0}}</h1>
+        </div>
+        <div class="gameStart">
+            <h1 id="startText">gameStart</h1>
+        </div>
     </div>
     <div class="Red" id="1" [appHighlight]="color" (click)="onUserClick(1)"> 
         
