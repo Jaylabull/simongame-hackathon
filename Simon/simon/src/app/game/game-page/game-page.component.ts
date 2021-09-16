@@ -22,75 +22,87 @@ export class GamePageComponent implements OnInit {
   }
 
 
-  onUserClick(input: number) : number {
+  onUserClick(input: number): number {
     console.log(input);
     if (input == 1) {
       console.log(this.color);
     } else if (input == 2) {
       console.log(this.color2);
-    }  else if (input == 3) {
+    } else if (input == 3) {
       console.log(this.color3);
-    }  else if (input == 4) {
+    } else if (input == 4) {
       console.log(this.color4);
     }
     return input;
   }
-  arr:  Number[] = [];
+  arr: Number[] = [];
   //on game start
-  gameStart(){
+  gameStart() {
     let rand = Math.floor(Math.random() * 5);
-    
+
     //loop randomize each 3 number that represnts a color
-    for(let i = 0; i < 10; i++){
+    for (let i = 0; i < 10; i++) {
       rand = Math.floor(Math.random() * 5);
       this.arr.push(rand);
     }
 
     console.log(this.arr);
-    //this.running(this.arr);
-  }
-  
-  remembert_the_step : number = 0;
-  running(r : number){
-    
+    this.running(3);
 
-    for(let i = 0; i < 10; i++){
-      for(let j = 0; j <= i; j++){
+    //this.running(4);
+  }
+  current_postion: number = 3;
+  index_of_array: number = 0;
+  running( position: number) {
+
+
+    for (let i = 0; i < position; i++) {
+
+      console.log(this.arr[i]);
+      for (let j = 0; j <= i; j++) {
         //highlight sequence of colors for user to see
       }
-      for(let j = 0; j <= i; j++){
+      for (let j = 0; j <= i; j++) {
         //get user input. check if correct sequence
-       // let input : number = onClick();
+        // let input : number = onClick();
         //check if correct
         //if(isCorrect(r[j], /*user input*/)){
 
-        }
       }
     }
-  
+  }
 
-  isCorrect( r : number)  {
-     // we have the array of number 
-    
- 
+
+  isCorrect(r: number) {
+    // we have the array of number 
+
+
     // checking if the button id match the number in the array
- 
+
     //arr[position] === r;
 
-    if (this.remembert_the_step > 10) {
+    if (this.index_of_array >= 10) {
       // we stop the game
     }
 
-    if ( this.arr[this.remembert_the_step]  === r){
-      // output a corect sound
-      this.remembert_the_step = this.remembert_the_step +1 ;
-
-      // call other method that display the new sequence.
+    if (this.arr[this.index_of_array] === r) {
+      
+      // this r
+      this.index_of_array = this.index_of_array + 1; 
+      
+      if (this.index_of_array === this.current_postion) {
+        this.current_postion = this.current_postion +1;
+          // call other method that display the new sequence.
+          this.index_of_array = 0;
+          this.running( this.current_postion );
+          
+      }
+    // output a corect sound
     } else {
       // output incorrect sound
     }
 
-    
+
   }
 
 }
