@@ -35,40 +35,62 @@ export class GamePageComponent implements OnInit {
     }
     return input;
   }
-
+  arr:  Number[] = [];
   //on game start
   gameStart(){
     let rand = Math.floor(Math.random() * 5);
-    let arr:  Number[] = [];
+    
     //loop randomize each 3 number that represnts a color
     for(let i = 0; i < 10; i++){
       rand = Math.floor(Math.random() * 5);
-      arr.push(rand);
+      this.arr.push(rand);
     }
-    this.running(arr);
-  }
 
-  running(r: Number[]){
+    console.log(this.arr);
+    //this.running(this.arr);
+  }
+  
+  remembert_the_step : number = 0;
+  running(r : number){
+    
+
     for(let i = 0; i < 10; i++){
       for(let j = 0; j <= i; j++){
         //highlight sequence of colors for user to see
       }
       for(let j = 0; j <= i; j++){
         //get user input. check if correct sequence
-        let input : number = onClick();
+       // let input : number = onClick();
         //check if correct
-        if(isCorrect(r[j], /*user input*/)){
+        //if(isCorrect(r[j], /*user input*/)){
 
         }
       }
     }
-  }
+  
 
-  isCorrect(r : number, input : number) : boolean {
-    if(r == input)
-      return true;
-    else
-      return false;
+  isCorrect( r : number)  {
+     // we have the array of number 
+    
+ 
+    // checking if the button id match the number in the array
+ 
+    //arr[position] === r;
+
+    if (this.remembert_the_step > 10) {
+      // we stop the game
+    }
+
+    if ( this.arr[this.remembert_the_step]  === r){
+      // output a corect sound
+      this.remembert_the_step = this.remembert_the_step +1 ;
+
+      // call other method that display the new sequence.
+    } else {
+      // output incorrect sound
+    }
+
+    
   }
 
 }
