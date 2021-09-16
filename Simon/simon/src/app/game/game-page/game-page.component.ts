@@ -19,6 +19,7 @@ export class GamePageComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.gameStart();
   }
 
 
@@ -38,7 +39,7 @@ export class GamePageComponent implements OnInit {
   arr: Number[] = [];
   //on game start
   gameStart() {
-    let rand = Math.floor(Math.random() * 5);
+    let rand = Math.floor(Math.random() * 2);
 
     //loop randomize each 3 number that represnts a color
     for (let i = 0; i < 10; i++) {
@@ -83,10 +84,11 @@ export class GamePageComponent implements OnInit {
 
     if (this.index_of_array >= 10) {
       // we stop the game
+      
     }
 
     if (this.arr[this.index_of_array] === r) {
-      
+      console.log(r + " is correct");
       // this r
       this.index_of_array = this.index_of_array + 1; 
       
