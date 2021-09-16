@@ -12,6 +12,7 @@ export class GamePageComponent implements OnInit {
   color2 = '#99ff66';
   color3 = '#80aaff';
   color4 = '#ffff66';
+  score: number = 0;
 
 
   constructor() { }
@@ -89,6 +90,7 @@ export class GamePageComponent implements OnInit {
     if (this.arr[this.index_of_array] === r) {
       console.log(r + " is correct");
       // this r
+      this.score = this.score + 1;
       this.index_of_array = this.index_of_array + 1; 
       
       if (this.index_of_array === this.current_postion) {
