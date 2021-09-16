@@ -13,15 +13,16 @@ export class GamePageComponent implements OnInit {
   color3 = '#80aaff';
   color4 = '#ffff66';
 
+
   constructor() { }
 
- 
+
 
   ngOnInit(): void {
   }
 
 
-  onUserClick(input: number){
+  onUserClick(input: number) : number {
     console.log(input);
     if (input == 1) {
       console.log(this.color);
@@ -32,20 +33,42 @@ export class GamePageComponent implements OnInit {
     }  else if (input == 4) {
       console.log(this.color4);
     }
-    
+    return input;
   }
 
   //on game start
   gameStart(){
     let rand = Math.floor(Math.random() * 5);
-
+    let arr:  Number[] = [];
     //loop randomize each 3 number that represnts a color
     for(let i = 0; i < 10; i++){
-
+      rand = Math.floor(Math.random() * 5);
+      arr.push(rand);
     }
-
-
+    this.running(arr);
   }
 
+  running(r: Number[]){
+    for(let i = 0; i < 10; i++){
+      for(let j = 0; j <= i; j++){
+        //highlight sequence of colors for user to see
+      }
+      for(let j = 0; j <= i; j++){
+        //get user input. check if correct sequence
+        let input : number = onClick();
+        //check if correct
+        if(isCorrect(r[j], /*user input*/)){
+
+        }
+      }
+    }
+  }
+
+  isCorrect(r : number, input : number) : boolean {
+    if(r == input)
+      return true;
+    else
+      return false;
+  }
 
 }
