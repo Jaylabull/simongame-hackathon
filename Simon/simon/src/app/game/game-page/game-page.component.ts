@@ -19,7 +19,7 @@ export class GamePageComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.gameStart();
+  
   }
 
 
@@ -43,7 +43,7 @@ export class GamePageComponent implements OnInit {
 
     //loop randomize each 3 number that represnts a color
     for (let i = 0; i < 10; i++) {
-      rand = Math.floor(Math.random() * 5);
+      rand = Math.floor(Math.random() * 4);
       this.arr.push(rand);
     }
 
@@ -82,10 +82,9 @@ export class GamePageComponent implements OnInit {
 
     //arr[position] === r;
 
-    if (this.index_of_array >= 10) {
-      // we stop the game
-      
-    }
+    
+    console.log("r is: " + r);
+    console.log("arr[index] is: " + this.arr[this.index_of_array]);
 
     if (this.arr[this.index_of_array] === r) {
       console.log(r + " is correct");
@@ -95,13 +94,22 @@ export class GamePageComponent implements OnInit {
       if (this.index_of_array === this.current_postion) {
         this.current_postion = this.current_postion +1;
           // call other method that display the new sequence.
-          this.index_of_array = 0;
-          this.running( this.current_postion );
+          if (this.index_of_array == 10) {
+            // we stop the game
+            this.arr = [];
+            console.log("game clear");
+          }
+          else{
+            this.index_of_array = 0;
+            this.running( this.current_postion );
+          }
+          
           
       }
     // output a corect sound
     } else {
       // output incorrect sound
+      console.log(r + " is wrong");
     }
 
 
