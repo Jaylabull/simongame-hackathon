@@ -8,18 +8,78 @@
       "TitleBar TitleBar"
       "Red Green"
       "Blue Yellow";
+      border: .3rem solid black ;
+      margin: -.5rem;
   }
   
   .TitleBar { 
       grid-area: TitleBar; 
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "title playerScore gameStart";
+      background-color: rgba(0, 211, 88, 0.164);
+      color: lightcyan;
+      border: .3rem solid black;
+      margin-bottom: 1rem;
+      border-radius: 2rem;
+      
+    }
+    
+    .title{
+        grid-area: title;
+        font-size: 2.5rem;
+        text-shadow: 5px 5px 5px black;
+        align-self: center;
+        justify-self: center;
+        margin: -4rem;
+        user-select: none;
+    }
+
+    .playerScore{
+        grid-area: playerScore;
+        font-size: 1.5rem;
+        text-shadow: 5px 5px 5px black;
+        margin: -.2rem;
+        align-self: center;
+        justify-self: center;
+        user-select: none;
+    }
+
+    .gameStart{
+        grid-area: gameStart;
+        font-size: 1rem;
+        text-shadow: 5px 5px 5px black;
+        margin: -.2rem;
+        align-self: center;
+        justify-self: center;
+        border: .3rem solid black ;
+        cursor: pointer;
+        border-radius: 10rem;
+        user-select: none;
     }
   
+    #startText{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .gameStart:active{
+        background-color: lightcyan;
+        color: rgba(0, 211, 88, 0.164);
+    }
+
   .Red { 
       grid-area: Red; 
     background-color: darkred;
     border-radius: 10rem;
     border: .3rem solid black ;
     box-shadow: 0rem -1rem 2rem 0rem darkred;
+    cursor: pointer;
+    margin-left: 26rem;
     }
   
   .Green { 
@@ -28,6 +88,8 @@
       border-radius: 10rem;
       border: .3rem solid black ;
       box-shadow: 0rem -1rem 2rem 0rem darkgreen;
+      cursor: pointer;
+      margin-right: 26rem;
     }
   
   .Blue { 
@@ -36,6 +98,8 @@
       border-radius: 10rem;
       border: .3rem solid black ;
       box-shadow: 0rem 1rem 2rem 0rem darkblue;
+      cursor: pointer;
+      margin-left: 26rem;
     }
   
   .Yellow { 
@@ -44,5 +108,23 @@
       border-radius: 10rem;
       border: .3rem solid black ;
       box-shadow: 0rem 1rem 2rem 0rem darkgoldenrod;
+      cursor: pointer;
+      margin-right: 26rem;
     }
+
+    .Red:active {  
+      box-shadow: 0rem -1rem 2rem 0rem #ff3333;
+      }
+    
+    .Green:active { 
+        box-shadow: 0rem -1rem 2rem 0rem #99ff66;
+      }
+    
+    .Blue:active { 
+        box-shadow: 0rem 1rem 2rem 0rem  #80aaff;
+      }
+    
+    .Yellow:active { 
+        box-shadow: 0rem 1rem 2rem 0rem #ffff66;
+      }
   
