@@ -18,19 +18,9 @@ export class HighlightDirective {
   // }
 
   @HostListener('click', ['$event.target.id']) onMouseClick() {
-    //if(event.target.id== 1){
+   
       this.highlight( this.appHighlight|| this.secondValue);
-     //'#ff3333'
-    //} else if (event.target.id  == 2){
-    
-    //    this.highlight("@ff2222");
-    // } else if (input == 3) {
-    //   this.highlight("@ff1111");
-    // } else {
-    //   this.highlight("@ff0000");
-    // }
-    
-    
+ 
   }
 
   @HostListener('mouseleave') onMouseLeave() {
