@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { countUpTimerConfigModel, CountupTimerService ,timerTexts } from 'ngx-timer';
 
 
 
@@ -18,12 +19,31 @@ export class GamePageComponent implements OnInit {
   score: number = 0;
   highlights: string[] = ['#ff3333','#99ff66','#80aaff','#ffff66'];
   colors: string[] = ['darkred','darkgreen','darkblue', 'darkgoldenrod'];
-  constructor() { }
+
+  countupTimerService:CountupTimerService;
+  testConfig : countUpTimerConfigModel;
+  
+
+  constructor() { 
+    this.countupTimerService = new CountupTimerService();
+    this.testConfig = new countUpTimerConfigModel();
+    
+    //custom class
+    this.testConfig.timerClass  = 'test_Timer_class';
+ 
+    //timer text values  
+    this.testConfig.timerTexts = new timerTexts();
+    this.testConfig.timerTexts.hourText = "Hours"; //default - hh
+    this.testConfig.timerTexts.minuteText = "Minutes"; //default - mm
+    this.testConfig.timerTexts.secondsText = "Seconds"; //default - ss
+  }
 
 
 
   ngOnInit(): void {
-  
+    let cdate = new Date();
+   cdate.setHours(cdate.getHours()-2); 
+    this.countupTimerService.startTimer( cdate);
   }
 
 
@@ -49,6 +69,7 @@ export class GamePageComponent implements OnInit {
     return input;
   }
   arr: Number[] = [];
+  instruction: Number[] =[];
   //on game start
   gameStart() {
     (document.getElementById("0") as HTMLElement).style.pointerEvents = "all";
@@ -75,7 +96,7 @@ export class GamePageComponent implements OnInit {
 
 
     for (let i = 0; i < position; i++) {
-
+        this.instruction[i] = this.arr[i];
       console.log(this.arr[i]);
       //  let currentTime: number = new Date().getTime();
       //  let allottedTime: number = currentTime;
@@ -95,6 +116,7 @@ export class GamePageComponent implements OnInit {
         //console.log("loop continues");
         //await this.delay(1000, i);
         //console.log("loop continues");
+       
 
     }
   }
@@ -107,7 +129,6 @@ export class GamePageComponent implements OnInit {
 
   isCorrect(r: number) {
     // we have the array of number 
-
 
     // checking if the button id match the number in the array
 
@@ -153,6 +174,8 @@ export class GamePageComponent implements OnInit {
       alert("Game Over your score is: " + this.score);
       this.score = 0;
       this.arr = [];
+      this.instruction = [];
+      this.index_of_array = 0;
       console.clear();
       (document.getElementById("0") as HTMLElement).style.pointerEvents = "none";
       (document.getElementById("1") as HTMLElement).style.pointerEvents = "none";
