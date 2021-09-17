@@ -56,7 +56,7 @@ export class GamePageComponent implements OnInit {
 
     console.log(this.arr);
     this.running(3);
-
+//
     //this.running(4);
   }
   current_postion: number = 3;
@@ -121,6 +121,13 @@ export class GamePageComponent implements OnInit {
             this.arr = [];
             console.log("game clear");
             alert("Success your score is: " + this.score);
+            (document.getElementById("0") as HTMLElement).style.pointerEvents = "none";
+            (document.getElementById("1") as HTMLElement).style.pointerEvents = "none";
+            (document.getElementById("2") as HTMLElement).style.pointerEvents = "none";
+            (document.getElementById("3") as HTMLElement).style.pointerEvents = "none";
+            this.score = 0;
+            this.index_of_array = 0;
+            this.current_postion = 3;
           }
           else{
             this.index_of_array = 0;
@@ -142,6 +149,8 @@ export class GamePageComponent implements OnInit {
       (document.getElementById("1") as HTMLElement).style.pointerEvents = "none";
       (document.getElementById("2") as HTMLElement).style.pointerEvents = "none";
       (document.getElementById("3") as HTMLElement).style.pointerEvents = "none";
+      this.index_of_array = 0;
+      this.current_postion = 3;
     }
 
 
