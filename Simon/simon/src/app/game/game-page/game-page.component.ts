@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 
 
+
 @Component({
   selector: 'app-game-page',
   templateUrl: './game-page.component.html',
@@ -13,6 +14,7 @@ export class GamePageComponent implements OnInit {
   color2 = '#99ff66';
   color3 = '#80aaff';
   color4 = '#ffff66';
+
   score: number = 0;
   highlights: string[] = ['#ff3333','#99ff66','#80aaff','#ffff66'];
   colors: string[] = ['darkred','darkgreen','darkblue', 'darkgoldenrod'];
@@ -24,6 +26,14 @@ export class GamePageComponent implements OnInit {
   
   }
 
+
+  playSound(){
+    let audio = new Audio();
+    audio.src = "simon/src/app/Sounds/Blow.mp3";
+    audio.load();
+    audio.play()
+    this.playSound();
+  }
 
   onUserClick(input: number): number {
     console.log(input);
@@ -106,7 +116,6 @@ export class GamePageComponent implements OnInit {
       // this r
       this.score = this.score + 1;
       this.index_of_array = this.index_of_array + 1; 
-      
       if (this.index_of_array === this.current_postion) {
         this.current_postion = this.current_postion +1;
           // call other method that display the new sequence.
