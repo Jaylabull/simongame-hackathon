@@ -10,12 +10,25 @@
             <h1 id="startText">gameStart</h1>
         </div>
     </div>
+    <countup-timer [countUpTimerConfig]="testConfig"></countup-timer>
+    <div style="position: fixed; padding-top: 140px; padding-left: 10px;" >
+        Please enter the following number repeatedly: <br>
+         <li style="display: inline;" *ngFor="let i of instruction" >  {{ i }}</li> </div>
+   
     <div class="Red" id="0" [appHighlight]="color" (click)="isCorrect( 0 )"> 
-        
+        Zero
     </div>
-    <div class="Green" id="1"  [appHighlight]="color2" secondValue="black"  (click)="isCorrect( 1 )"></div>
-    <div class="Blue" id="2" [appHighlight]="color3" (click)="isCorrect( 2 )"></div>
-    <div class="Yellow" id="3"  [appHighlight]="color4" (click)="isCorrect( 3 )"></div>
+    <div class="Green" id="1"  [appHighlight]="color2" secondValue="black"  (click)="isCorrect( 1 )">
+        One
+    </div>
+    <div class="Blue" id="2" [appHighlight]="color3" (click)="isCorrect( 2 )">
+        Two
+    </div>
+    <div class="Yellow" id="3"  [appHighlight]="color4" (click)="isCorrect( 3 )">
+        Three
+    </div>
 
     <p [appHighlight]="color">Highlight me!</p>
+
+   
   </div>
