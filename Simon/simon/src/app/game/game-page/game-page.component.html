@@ -10,12 +10,12 @@
             <h1 id="startText">gameStart</h1>
         </div>
     </div>
-    <div class="Red" id="0" [appHighlight]="color" (click)="isCorrect( 0 )"> 
+    <div class="Red" id="0" [appHighlight]="color" (click) = "playSound()"  (click)="isCorrect( 0 )"> 
         
     </div>
-    <div class="Green" id="1"  [appHighlight]="color2" secondValue="black"  (click)="isCorrect( 1 )"></div>
-    <div class="Blue" id="2" [appHighlight]="color3" (click)="isCorrect( 2 )"></div>
-    <div class="Yellow" id="3"  [appHighlight]="color4" (click)="isCorrect( 3 )"></div>
+    <div class="Green" id="1"  [appHighlight]="color2" secondValue="black" (click) = "playSound()" (click)="isCorrect( 1 )"></div>
+    <div class="Blue" id="2" [appHighlight]="color3"  (click) = "playSound()" (click)="isCorrect( 2 )"></div>
+    <div class="Yellow" id="3"  [appHighlight]="color4" (click) = "playSound()" (click)="isCorrect( 3 )"></div>
 
     <p [appHighlight]="color">Highlight me!</p>
   </div>
