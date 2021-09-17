@@ -56,36 +56,37 @@ export class GamePageComponent implements OnInit {
   }
   current_postion: number = 3;
   index_of_array: number = 0;
-  async running( position: number) {
+  running( position: number) {
 
 
     for (let i = 0; i < position; i++) {
 
       console.log(this.arr[i]);
-      
-      for (let j = 0; j <= i; j++) {
+       let currentTime: number = new Date().getTime();
+       let allottedTime: number = currentTime;
         //highlight sequence of colors for user to see
-        (document.getElementById(String(this.arr[j])) as HTMLElement).style.backgroundColor = this.highlights[this.arr[j].valueOf()];
+        
+        
+        while(allottedTime <= currentTime + 1000){
+           (document.getElementById(String(this.arr[i])) as HTMLElement).style.backgroundColor = this.highlights[this.arr[i].valueOf()];
+          allottedTime = new Date().getTime();
+        }
+        (document.getElementById(String(this.arr[i])) as HTMLElement).style.backgroundColor = this.colors[this.arr[i].valueOf()];
+        // currentTime = new Date().getTime();
+        // allottedTime = currentTime;
+        // while(currentTime <= currentTime + 1000){
+        //   allottedTime = new Date().getTime();
+        // }
+        //console.log("loop continues");
+        //await this.delay(1000, i);
+        //console.log("loop continues");
 
-        do{
-          continue;
-        }while(await this.delay(1000, j));
-        console.log("loop continues");
-
-      }
-      for (let j = 0; j <= i; j++) {
-        //get user input. check if correct sequence
-        // let input : number = onClick();
-        //check if correct
-        //if(isCorrect(r[j], /*user input*/)){
-
-      }
     }
   }
 
   delay(ms: number, j:number){
-    return new Promise<boolean>(() => setTimeout(() =>{
-      (document.getElementById(String(this.arr[j])) as HTMLElement).style.backgroundColor = this.colors[this.arr[j].valueOf()];
+    return new Promise(() => setTimeout(() =>{
+       (document.getElementById(String(this.arr[j])) as HTMLElement).style.backgroundColor = this.colors[this.arr[j].valueOf()];
     }, ms));
   }
 
