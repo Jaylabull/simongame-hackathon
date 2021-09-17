@@ -41,6 +41,10 @@ export class GamePageComponent implements OnInit {
   arr: Number[] = [];
   //on game start
   gameStart() {
+    (document.getElementById("0") as HTMLElement).style.pointerEvents = "all";
+    (document.getElementById("1") as HTMLElement).style.pointerEvents = "all";
+    (document.getElementById("2") as HTMLElement).style.pointerEvents = "all";
+    (document.getElementById("3") as HTMLElement).style.pointerEvents = "all";
     this.arr = [];
     let rand = Math.floor(Math.random() * 2);
 
@@ -116,6 +120,7 @@ export class GamePageComponent implements OnInit {
             // we stop the game
             this.arr = [];
             console.log("game clear");
+            alert("Success your score is: " + this.score);
           }
           else{
             this.index_of_array = 0;
@@ -128,6 +133,15 @@ export class GamePageComponent implements OnInit {
     } else {
       // output incorrect sound
       console.log(r + " is wrong");
+      console.log("game over");
+      alert("Game Over your score is: " + this.score);
+      this.score = 0;
+      this.arr = [];
+      console.clear();
+      (document.getElementById("0") as HTMLElement).style.pointerEvents = "none";
+      (document.getElementById("1") as HTMLElement).style.pointerEvents = "none";
+      (document.getElementById("2") as HTMLElement).style.pointerEvents = "none";
+      (document.getElementById("3") as HTMLElement).style.pointerEvents = "none";
     }
 
 
