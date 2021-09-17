@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { countUpTimerConfigModel, CountupTimerService ,timerTexts } from 'ngx-timer';
 
 
+
 @Component({
   selector: 'app-game-page',
   templateUrl: './game-page.component.html',
@@ -14,6 +15,7 @@ export class GamePageComponent implements OnInit {
   color2 = '#99ff66';
   color3 = '#80aaff';
   color4 = '#ffff66';
+
   score: number = 0;
   highlights: string[] = ['#ff3333','#99ff66','#80aaff','#ffff66'];
   colors: string[] = ['darkred','darkgreen','darkblue', 'darkgoldenrod'];
@@ -44,6 +46,14 @@ export class GamePageComponent implements OnInit {
     this.countupTimerService.startTimer( cdate);
   }
 
+
+  playSound(){
+    let audio = new Audio();
+    audio.src = "simon/src/app/Sounds/Blow.mp3";
+    audio.load();
+    audio.play()
+    this.playSound();
+  }
 
   onUserClick(input: number): number {
     console.log(input);
@@ -77,7 +87,7 @@ export class GamePageComponent implements OnInit {
 
     console.log(this.arr);
     this.running(3);
-
+//
     //this.running(4);
   }
   current_postion: number = 3;
@@ -133,7 +143,6 @@ export class GamePageComponent implements OnInit {
       // this r
       this.score = this.score + 1;
       this.index_of_array = this.index_of_array + 1; 
-      
       if (this.index_of_array === this.current_postion) {
         this.current_postion = this.current_postion +1;
           // call other method that display the new sequence.
@@ -142,6 +151,13 @@ export class GamePageComponent implements OnInit {
             this.arr = [];
             console.log("game clear");
             alert("Success your score is: " + this.score);
+            (document.getElementById("0") as HTMLElement).style.pointerEvents = "none";
+            (document.getElementById("1") as HTMLElement).style.pointerEvents = "none";
+            (document.getElementById("2") as HTMLElement).style.pointerEvents = "none";
+            (document.getElementById("3") as HTMLElement).style.pointerEvents = "none";
+            this.score = 0;
+            this.index_of_array = 0;
+            this.current_postion = 3;
           }
           else{
             this.index_of_array = 0;
@@ -165,6 +181,8 @@ export class GamePageComponent implements OnInit {
       (document.getElementById("1") as HTMLElement).style.pointerEvents = "none";
       (document.getElementById("2") as HTMLElement).style.pointerEvents = "none";
       (document.getElementById("3") as HTMLElement).style.pointerEvents = "none";
+      this.index_of_array = 0;
+      this.current_postion = 3;
     }
 
 
