@@ -41,6 +41,7 @@ export class GamePageComponent implements OnInit {
   arr: Number[] = [];
   //on game start
   gameStart() {
+    this.arr = [];
     let rand = Math.floor(Math.random() * 2);
 
     //loop randomize each 3 number that represnts a color
@@ -62,15 +63,15 @@ export class GamePageComponent implements OnInit {
     for (let i = 0; i < position; i++) {
 
       console.log(this.arr[i]);
-       let currentTime: number = new Date().getTime();
-       let allottedTime: number = currentTime;
+      //  let currentTime: number = new Date().getTime();
+      //  let allottedTime: number = currentTime;
         //highlight sequence of colors for user to see
         
         
-        while(allottedTime <= currentTime + 1000){
+        // while(allottedTime <= currentTime + 1000){
            (document.getElementById(String(this.arr[i])) as HTMLElement).style.backgroundColor = this.highlights[this.arr[i].valueOf()];
-          allottedTime = new Date().getTime();
-        }
+        //   allottedTime = new Date().getTime();
+        // }
         (document.getElementById(String(this.arr[i])) as HTMLElement).style.backgroundColor = this.colors[this.arr[i].valueOf()];
         // currentTime = new Date().getTime();
         // allottedTime = currentTime;
