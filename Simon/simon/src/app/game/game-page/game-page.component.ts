@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 
 
@@ -13,8 +14,8 @@ export class GamePageComponent implements OnInit {
   color3 = '#80aaff';
   color4 = '#ffff66';
   score: number = 0;
-
-
+  highlights: string[] = ['#ff3333','#99ff66','#80aaff','#ffff66'];
+  colors: string[] = ['darkred','darkgreen','darkblue', 'darkgoldenrod'];
   constructor() { }
 
 
@@ -55,14 +56,22 @@ export class GamePageComponent implements OnInit {
   }
   current_postion: number = 3;
   index_of_array: number = 0;
-  running( position: number) {
+  async running( position: number) {
 
 
     for (let i = 0; i < position; i++) {
 
       console.log(this.arr[i]);
+      
       for (let j = 0; j <= i; j++) {
         //highlight sequence of colors for user to see
+        (document.getElementById(String(this.arr[j])) as HTMLElement).style.backgroundColor = this.highlights[this.arr[j].valueOf()];
+
+        do{
+          continue;
+        }while(await this.delay(1000, j));
+        console.log("loop continues");
+
       }
       for (let j = 0; j <= i; j++) {
         //get user input. check if correct sequence
@@ -74,6 +83,11 @@ export class GamePageComponent implements OnInit {
     }
   }
 
+  delay(ms: number, j:number){
+    return new Promise<boolean>(() => setTimeout(() =>{
+      (document.getElementById(String(this.arr[j])) as HTMLElement).style.backgroundColor = this.colors[this.arr[j].valueOf()];
+    }, ms));
+  }
 
   isCorrect(r: number) {
     // we have the array of number 
