@@ -80,6 +80,7 @@
     box-shadow: 0rem -1rem 2rem 0rem darkred;
     cursor: pointer;
     margin-left: 26rem;
+    pointer-events: none;
     }
   
   .Green { 
@@ -90,6 +91,7 @@
       box-shadow: 0rem -1rem 2rem 0rem darkgreen;
       cursor: pointer;
       margin-right: 26rem;
+      pointer-events: none;
     }
   
   .Blue { 
@@ -100,6 +102,7 @@
       box-shadow: 0rem 1rem 2rem 0rem darkblue;
       cursor: pointer;
       margin-left: 26rem;
+      pointer-events: none;
     }
   
   .Yellow { 
@@ -110,6 +113,7 @@
       box-shadow: 0rem 1rem 2rem 0rem darkgoldenrod;
       cursor: pointer;
       margin-right: 26rem;
+      pointer-events: none;
     }
 
     .Red:active {  
